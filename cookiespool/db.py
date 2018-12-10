@@ -32,3 +32,11 @@ class RedisClient(object):
         :return:
         '''
         return self.db.hset(self.name(), username, value)
+
+    def get(self, username):
+        '''
+        根据键名获取键值
+        :param username: 用户名
+        :return:
+        '''
+        return self.db.hget(self.name(), username)
