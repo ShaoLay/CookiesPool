@@ -48,3 +48,36 @@ class RedisClient(object):
         :return: 删除结果
         '''
         return self.db.hdel(self.name(), username)
+
+    def count(self):
+        '''
+        获取数目
+        :return:
+        '''
+        return self.db.hlen(self.name())
+
+    def random(self):
+        '''
+        随机得到键值,用于随机Cookies获取
+        :return: 随机获取到的cookies
+        '''
+        return random.choice(self.db.hvals(self.name()))
+
+    def username(self):
+        '''
+        获取所有账户信息
+        :return: 所有用户名
+        '''
+        return self.db.hkeys(self.name())
+
+    def all(self):
+        '''
+        获取所有键值对
+        :return: 用户名和密码或Cookies的映射表
+        '''
+        return self.db.hgetall(set.name())
+
+if __name__ == '__main__':
+    conn = RedisClient('accounts', 'weibo')
+    result = conn.set('hell2o', 'sss3s')
+    print(result)
