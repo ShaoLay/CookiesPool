@@ -23,3 +23,12 @@ class RedisClient(object):
         :return:
         '''
         return "{type}:{website}".format(type=self.type, website=self.website)
+
+    def set(self, username, value):
+        '''
+        设置键值对
+        :param username: 用户名
+        :param value: 密码或Cookies
+        :return:
+        '''
+        return self.db.hset(self.name(), username, value)
