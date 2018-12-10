@@ -40,3 +40,11 @@ class RedisClient(object):
         :return:
         '''
         return self.db.hget(self.name(), username)
+
+    def delete(self, username):
+        '''
+        根据键名删除键值对
+        :param username: 用户名
+        :return: 删除结果
+        '''
+        return self.db.hdel(self.name(), username)
