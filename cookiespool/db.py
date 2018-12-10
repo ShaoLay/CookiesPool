@@ -16,3 +16,10 @@ class RedisClient(object):
         self.db = redis.StrictRedis(host=host, port=port, password=passwrod, decode_responses=True)
         self.type = type
         self.website = website
+
+    def name(self):
+        '''
+        获取Hash的名称
+        :return:
+        '''
+        return "{type}:{website}".format(type=self.type, website=self.website)
