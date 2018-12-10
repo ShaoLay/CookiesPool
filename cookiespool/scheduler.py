@@ -7,6 +7,7 @@ from cookiespool.generator import *
 from cookiespool.tester import *
 
 
+
 class Scheduler(object):
     @staticmethod
     def valid_cookie(cycle=CYCLE):
